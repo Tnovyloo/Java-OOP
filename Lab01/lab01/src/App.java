@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Main {
+public class App {
     public static void main(String[] args) {
 
 //        Scanner input = new Scanner(System.in);
@@ -17,30 +17,36 @@ public class Main {
 
 //        System.out.println((a + b) + " " + imie);
 
-//      Zadanie 1
+        // Zadanie 1
         int returnedAge = returnAge(11);
         String firstName = returnFirstName("Tomasinho");
 
         System.out.println(returnedAge + firstName);
 
+        // Zadanie 2
         double x = inputDouble();
         double y = inputDouble();
 
         calculator(x, y);
 
+        // Zadanie 3
         for (int i = 0; i < 10; i++) {
             System.out.println(i + " " + checkIfEven(i));
         }
 
+        // Zadanie 4
         for (int i = 0; i <= 15; i++) {
             System.out.println(i + " " + checkIfBuzz(i));
         }
 
+        // Zadanie 5
         System.out.println(powTo3(3));
         System.out.println(powTo3(5));
 
+        // Zadanie 6
         System.out.println(returnDoubleSqrt(4));
 
+        // Zadanie 7
         System.out.println(returnIfTriangle(5, 4, 3));
 
         Random rand = new Random();
@@ -112,3 +118,5 @@ public class Main {
         System.out.println("Podaj liczbe calkowita: ");
         return input.nextInt();
     }
+
+}
