@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -13,26 +15,19 @@ public class App {
         // arrayExercise();
 
         // Exercise 4
-        arrayExerciseNext();
+        // arrayExerciseNext();
+
+        // Exercise 5;
+        // showExerciseNumbers();
+
+        // Exercise 6;
+        // infiniteUserInterface();
+
+        // Exercise 7;
+        sortUserList();
 
     }
-
-    // function for excercise 1
-    public static void delta() {
-        Scanner input = new Scanner(System.in);
-
-        double a = inputDouble('a');
-        double b = inputDouble('b');
-        double c = inputDouble('c');
-
-        double delta = b * b - (4*a*c);
-
-        System.out.println("Delta = " + delta);
-        double x1 = (b + Math.sqrt(delta)) / 2*a;
-        double x2 = (-b + Math.sqrt(delta)) / 2*a;
-        System.out.println("x1 = " + x1 + "\n" + "x2 = " + x2);
-    }
-
+    
     // Help functions
     public static double inputDouble(char inputValue) {
         Scanner input = new Scanner(System.in);
@@ -49,6 +44,23 @@ public class App {
         
         return value;
     }
+    
+    // function for excercise 1
+    public static void delta() {
+        Scanner input = new Scanner(System.in);
+
+        double a = inputDouble('a');
+        double b = inputDouble('b');
+        double c = inputDouble('c');
+
+        double delta = b * b - (4*a*c);
+
+        System.out.println("Delta = " + delta);
+        double x1 = (b + Math.sqrt(delta)) / 2*a;
+        double x2 = (-b + Math.sqrt(delta)) / 2*a;
+        System.out.println("x1 = " + x1 + "\n" + "x2 = " + x2);
+    }
+
 
     // fucntion for excercise 2
     public static void calculator() {
@@ -169,6 +181,7 @@ public class App {
     }
 
 
+    // Method for exercise 4
     public static void arrayExerciseNext() {
         ArrayList<Integer> numbers = new ArrayList<Integer>();
 
@@ -251,4 +264,64 @@ public class App {
 
     }
 
+
+    // Method for exercise 5
+    public static void showExerciseNumbers() {
+        ArrayList<Integer> numbers = new ArrayList<Integer>() {
+            {
+                add(2);
+                add(6);
+                add(9);
+                add(15);
+                add(19);
+            }
+        };
+
+        for (int i = 0; i <= 20; i++) {
+            if (numbers.contains(i)) {
+                continue;
+            } else {
+                System.out.println(i);
+            }
+        }
+    }
+
+    // Method for exercise 6
+    public static void infiniteUserInterface() {
+        boolean continueProgram = true;
+        
+        while (continueProgram) {
+            int userInput = inputInteger("wartosc");
+            System.out.println(userInput);
+            if (userInput < 0) {
+                continueProgram = false;
+            } else {
+                continueProgram = true;
+            }
+        }
+    }
+
+    // Method for exercise 7
+    public static void sortUserList() {
+        ArrayList<Integer> userList = new ArrayList<>();
+        int n = inputInteger("wielkosc tablicy");
+
+        for (int i = 0; i < n; i++) {
+            String text = "wartosc dla indeksu " + i;
+            userList.add(inputInteger(text));
+        }
+
+        // Sorting alghoritm 
+        n = userList.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (userList.get(j) > userList.get(j + 1)) {
+                    // Swap arr[j] and arr[j+1]
+                    Collections.swap(userList, j, j + 1);
+                }
+            }
+        }
+
+        System.out.println(userList);
+    }
 }
