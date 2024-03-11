@@ -11,7 +11,7 @@ public class App {
         exercise5();
     }
 
-    // Help function
+    // Help functions
     public static int inputInteger(String inputValue) {
         Scanner input = new Scanner(System.in);
         System.out.println("Podaj " + inputValue + ":");
