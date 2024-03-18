@@ -1,3 +1,4 @@
+package calculator;
 public class Rectangle extends Shape {
     double a, b;
     

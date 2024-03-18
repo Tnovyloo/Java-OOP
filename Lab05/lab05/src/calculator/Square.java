@@ -1,3 +1,4 @@
+package calculator;
 public class Square extends Shape {
     double a;
 
