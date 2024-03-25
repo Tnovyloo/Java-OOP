@@ -1,10 +1,11 @@
 import zad1.*;
+import zad2.*;
 
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args, Car car2) throws Exception {
 
-        // Exercise 1-7
+        // Exercise 1.1-1.7
         Point[] points = new Point[]{
             new Point(),
             new Point(5, 12),
@@ -21,7 +22,7 @@ public class App {
             System.out.println("\n");
         }
 
-        // Exercise 8 - 10
+        // Exercise 1.8 - 1.10
         Figura figura = new Figura(points[1]);
         System.out.println(figura.opis());
 
@@ -37,29 +38,37 @@ public class App {
             System.out.println(okrag.getSrednica() + "\n");
         }
 
-        // Exercise 11 - 12
+        // Exercise 1.11 - 1.12
         Prostokat prostokat = new Prostokat(15, 10, "Czerwony");
         System.out.println(prostokat.getKolor());
         System.out.println(prostokat.getX() + " " + prostokat.getY());
 
-        // Exercise 13
+        // Exercise 1.13
         Trojkat trojkat = new Trojkat(3, 5, "Zielony");
         System.out.println(trojkat);
         System.out.println(trojkat.getKolor());
 
-        // Exercise 14 - 15
+        // Exercise 1.14 - 1.15
         prostokat.przesun(3, 5);
         System.out.println("\nProstokat przesuniety: " + prostokat.getX() + " " + prostokat.getY());
 
-        // Exercise 16 - 17
+        // Exercise 1.16 - 1.17
         Kwadrat kwadrat = new Kwadrat(5, 5, "Fioletowy");
         System.out.println(kwadrat.getX() + " " +  kwadrat.getY() + " ");
 
-        // Exercise 18 - 19
+        // Exercise 1.18 - 1.19
         System.out.println(kwadrat.opis());
 
-        // Exercise 20
+        // Exercise 1.20
         Okrag okrag1 = new Okrag(points[2], 5, "Niebieski");
         System.out.println(okrag1.opis());
+
+        // Exercise 2
+        Car car = new Car("BMW", "Seria 5", "Sedan", "Czarny", 2020, 21980);
+        System.out.println(car);
+
+        PassengerCar passengerCar = new PassengerCar("Mercedes", "E klasa", "Sedan", "Srebrny", 2021, 43122, 1800, 2400, 5);
+        System.out.println(passengerCar);
+
     }
 }
