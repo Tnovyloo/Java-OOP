@@ -1,9 +1,13 @@
 import zad1.*;
 import zad2.*;
+import zad3.Book;
+import zad3.Bookstore;
+import zad3.Client;
+import zad3.Novel;
 
 
 public class App {
-    public static void main(String[] args, Car car2) throws Exception {
+    public static void main(String[] args) {
 
         // Exercise 1.1-1.7
         Point[] points = new Point[]{
@@ -69,6 +73,21 @@ public class App {
 
         PassengerCar passengerCar = new PassengerCar("Mercedes", "E klasa", "Sedan", "Srebrny", 2021, 43122, 1800, 2400, 5);
         System.out.println(passengerCar);
+
+        // Exercise 3
+        Bookstore bookStore = new Bookstore("HelloBoook");
+        bookStore.printName();
+
+        Book book = new Book("Stary czlowiek i morze", 1830, "Novel", "Tom Ford");
+        book.printBook();
+
+        System.out.println("\nCreating novel:");
+
+        Novel novelBook = new Novel("Nowy czlowiek i stare morze", 2020, "Zycie zycie jest nowela", "Ronaldinho", "MESSI ANKARA MESSI ANKARA MESSI UENA MESSI ANKARA MESSI ANKARA MESSI ANKARA MESSI ANKARA MESSI\r\n");
+        novelBook.printBook();
+
+        Client client = new Client("John", "booooooookstor");
+        client.printName();
 
     }
 }
