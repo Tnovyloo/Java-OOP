@@ -1,9 +1,18 @@
 import java.util.ArrayList;
+import java.util.List;
 
 import zad1.*;
 import zad2.*;
-import zad3.*;
+
+// We have to import this directly from Class File because 
+// it imports wrong Classes that dont extends Figura abstract class
+import zad3.Trojkat;
 import zad3.Figura;
+import zad3.IFigura;
+import zad3.Okrag;
+import zad3.Punkt;
+import zad3.Prostokat;
+import zad3.Kwadrat;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -27,24 +36,30 @@ public class App {
         fish.eat();
 
         // Exercise 3
-        Prostokat prostokat = new Prostokat(2.5, 1.5);
-        Kwadrat kwadrat = new Kwadrat(2, 2, "Niebieski");
-        Trojkat trojkat = new Trojkat(6, 3);
-        Punkt punkt = new Punkt(5, 3);
+        Kwadrat kwadrat = new Kwadrat(2, "Niebieski");
+        Trojkat trojkat = new Trojkat(6, 3, "A");
+        Prostokat prostokat = new Prostokat(2, 1,"a");
+        Okrag okrag = new Okrag(2, new Punkt(2, 5));
 
-        System.out.println(prostokat.getX() + " " + prostokat.getY() + " " + prostokat.getKolor() + " " + prostokat.getPowierzchnia());
-        System.out.println(kwadrat.getKolor() + " " + kwadrat.getPowierzchnia());
-        System.out.println(trojkat.getKolor());
-        
-        System.out.println(prostokat.opis());
+        ArrayList<Figura> typyFigur = new ArrayList<>();
 
-        ArrayList<Object> typyFigur = new ArrayList<>();
         typyFigur.add(prostokat);
         typyFigur.add(trojkat);
+        typyFigur.add(kwadrat);
+        typyFigur.add(okrag);
 
-        System.out.println("XD");
-        for (Object object : typyFigur) {
-            System.out.println(object);
+        for (Figura figura : typyFigur) {
+            System.out.println(figura.opis());
+            figura.skaluj(4);
+            System.out.println("Testowanie getPowierzchnia, i wPolu");
         }
+
+        for (Figura figura : typyFigur) {
+            System.out.println(figura.getPowierzchnia());
+            System.out.println(figura.wPolu(new Punkt(0, 0)));
+        }
+
+        okrag.przesun();
+
     }
 }
