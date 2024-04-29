@@ -1,3 +1,4 @@
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -65,5 +66,16 @@ public class App {
         List<EventParticipant> paritcipantsList1 = new ArrayList<>(Arrays.asList(paritcipantsList));
 
 
+        // Exercise 5
+        List<Integer> firstList = new ArrayList<Integer>();
+        for (int i = 0; i < 10; i++) {
+            firstList.add(i);
+        }
+        System.out.println(firstList);
+
+        List<Integer> secondList = new ArrayList<>();
+        for (int i = firstList.size(); i >= 0; i--) {
+            secondList.add(firstList.get(i));
+        }
     }
 }
