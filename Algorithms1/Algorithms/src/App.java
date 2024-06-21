@@ -5,7 +5,14 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         // NWD(13, 169);
-        primeNumber(100);
+        // primeNumber(100);
+        primeFactorization(513);
+        primeFactorization(422312);
+        primeFactorization(1233);
+        primeFactorization(123);
+        primeFactorization(12);
+        // primeFactorization(1);
+        primeFactorization(44100);
     }
 
 
@@ -22,6 +29,7 @@ public class App {
     }
 
     public static void primeNumber(int a) {
+        // Function for generating prime numbers.
         if (a == 2) {
             System.out.println(a);
         }
@@ -29,10 +37,11 @@ public class App {
             // Search for number dividors.
             List<Integer> dividorsArrayLists = new ArrayList<Integer>();
 
-            for (int j = 1; j <= Math.sqrt(i); j++) {
-            // for (int j = 1; j <= i; j++) {
+            // for (int j = 1; j <= Math.sqrt(i); j++) { 
+            for (int j = 1; j <= i-1; j++) {
                 if (i % j == 0) {
                     dividorsArrayLists.add(j);
+                    // break;
                 }
             }
 
@@ -41,5 +50,35 @@ public class App {
                 System.out.println("Prime number: " + i);
             }
         }
+    }
+
+    public static void primeFactorization(int a) {
+        List<Integer> factorsArrayList = new ArrayList<Integer>();
+        boolean itterate = true;
+        if (a == 0) {
+            itterate = false;
+            factorsArrayList.add(1);
+        }
+
+        while (itterate) {
+            int factor = 2;
+            int currentNumber = a;
+            boolean itterate2 = true;
+            while (itterate2) {
+                System.out.println(currentNumber + " " + factor);
+                if (currentNumber % factor == 0) {
+                    currentNumber /= factor;
+                    factorsArrayList.add(factor);
+                } else if (currentNumber / factor == 1 || currentNumber == 1){
+                    itterate2 = false;
+                    itterate = false;
+                    break;
+                } else {
+                    factor += 1;
+                }
+            }
+        }
+
+        System.out.println(factorsArrayList);
     }
 }
