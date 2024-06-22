@@ -6,13 +6,14 @@ public class App {
         System.out.println("Hello, World!");
         // NWD(13, 169);
         // primeNumber(100);
-        primeFactorization(513);
-        primeFactorization(422312);
-        primeFactorization(1233);
-        primeFactorization(123);
-        primeFactorization(12);
+        // primeFactorization(513);
+        // primeFactorization(422312);
+        // primeFactorization(1233);
+        // primeFactorization(123);
+        // primeFactorization(12);
         // primeFactorization(1);
-        primeFactorization(44100);
+        // primeFactorization(44100);
+        LCG(12, 13, 7, 0);
     }
 
 
@@ -80,5 +81,17 @@ public class App {
         }
 
         System.out.println(factorsArrayList);
+    }
+
+    public static void LCG(int mod, int multipler, int gain, int seed) {
+        // pseudorandom number linear congruential generator
+        int x = seed;
+        int lastResult = 0;
+        do {
+            x = (multipler * (lastResult + gain)) % mod;
+            lastResult = x;
+            System.out.println(x);
+        } while (x != seed);
+
     }
 }
