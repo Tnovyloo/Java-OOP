@@ -172,10 +172,6 @@ public class App {
             bucketMaxHashMap.put(i, 0);
         }
 
-        // for (int i = 0; i < arrayList.size(); i++) {
-        //     bucketMaxHashMap.put(arrayList.get(i), bucketMaxHashMap.get(i) + 1);
-        // }
-
         for (int i = 0; i < arrayList.size(); i++) {
             int value = bucketMaxHashMap.get(arrayList.get(i));
             bucketMaxHashMap.put(arrayList.get(i), value + 1);
