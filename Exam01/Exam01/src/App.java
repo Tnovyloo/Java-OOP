@@ -15,7 +15,12 @@ public class App {
         // By default all class are protected into package so this line is gonna not work
         // ProtectedClass protectedClass = new ProtectedClass();
 
+        // In public class we have usage of protected createInnerInstance1
         PublicClass publicClass = new PublicClass();
         publicClass.doSmth();
+
+        // We could only from here use public method in OutterClass
+        OutterClass outterClass = new OutterClass();
+        outterClass.createInnerInstance2();
     }
 }
