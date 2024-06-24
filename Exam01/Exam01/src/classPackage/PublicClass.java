@@ -5,6 +5,7 @@ public class PublicClass {
     public void doSmth() {
         ProtectedClass protectedClass = new ProtectedClass();
         protectedClass.doSmth("Helllo");
+        protectedClass.doSmth();
 
         OutterClass outterClass = new OutterClass();
         // InnerClass is private

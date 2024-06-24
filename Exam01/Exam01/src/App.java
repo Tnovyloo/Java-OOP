@@ -12,7 +12,7 @@ public class App {
 
         pen.getOS();
 
-        // By default all class are protected into package so this line is gonna not work
+        // By default all class are protected into package so this line is not gonna work
         // ProtectedClass protectedClass = new ProtectedClass();
 
         // In public class we have usage of protected createInnerInstance1
@@ -22,5 +22,9 @@ public class App {
         // We could only from here use public method in OutterClass
         OutterClass outterClass = new OutterClass();
         outterClass.createInnerInstance2();
+
+        TestClass testClass = new TestClass();
+        // testClass.counter();
+        TestClass.counter();
     }
 }
