@@ -18,13 +18,14 @@ public class TestClass {
         // System.out.println(c);
         // System.out.println(this.c);
 
+        // We could only use static variables in static methods.
         System.out.println(b);
-        countToA();
+        countToA(20);
     }
 
-    private static void countToA() {
+    private static void countToA(int b) {
         for (int i = 0; i < a; i++) {
-            System.out.println(i);
+            System.out.println(i + " " + b);
         }
     }
 }
