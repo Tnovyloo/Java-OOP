@@ -1,6 +1,8 @@
 package classPackage;
 
 public class PublicClass {
+    // By default all classes has constructor with no arguments.
+    public PublicClass() {}
     
     public void doSmth() {
         ProtectedClass protectedClass = new ProtectedClass();
