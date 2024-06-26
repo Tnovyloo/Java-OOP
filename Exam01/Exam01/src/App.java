@@ -1,13 +1,19 @@
 import toolsPackage.Pen;
 import typeGenerics.Box;
+import typeGenerics.Pair;
+import typeGenerics.Fruits.Apple;
+import typeGenerics.Fruits.Fruit;
+import typeGenerics.Fruits.FruitTree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import classPackage.*;
@@ -15,6 +21,7 @@ import customExceptions.FileHandler;
 import customExceptions.StudentException;
 
 public class App {
+    // This Java project is only for reminding purposses.
     public static void main(String[] args) throws Exception {
 
         // Testing abstractions, interfaces and access modifiers
@@ -129,6 +136,56 @@ public class App {
         newBox.setElement(5);
         System.out.println("You make a Integer generic type, now getElement will return Integer.  " + newBox.getElement());
         newBox.printTypeOfElement();
+
+        // Maps, we have Java map implementations like: HashMap and TreeMap
+        // HashMap has linear time execution in operations like insertions and search.
+        // TreeMap is automatically sorted, we could do subMap().
+
+        HashMap<String, String> newHashMap = new HashMap<>();
+        newHashMap.put("a", "Orange");
+        newHashMap.put("c", "Cucumber");
+        newHashMap.put("b", "Test");
+        
+        // HashMaps doesnt have an Iterator function to return Iterator class.
+        System.out.println(newHashMap);
+
+
+        // Let's create an TreeMap
+        TreeMap<Integer, String> newTreeMap = new TreeMap<>();
+        newTreeMap.put(2, "Cucumber");
+        newTreeMap.put(1, "Orange");
+        newTreeMap.put(0, "Test");
+        System.out.println(newTreeMap);
+
+
+        // Type generics in Classes.
+        // Remember that you can only use Reference type as generic type. No int, booelan - Only Integer, Boolean etc.
+        Pair<Integer, String> newPair = new Pair<>();
+        newPair.setFirstElement(1);
+        newPair.setSecondElement("null");
+
+        // Now lets create Type Generics in Method (in the same class)
+        newPair.functionWithTypeGenerics(newHashMap, newTreeMap);
+
+        // Lets learn how covariation and countervariation, bivariation works in Java type generics.
+        // Covariation
+        ArrayList<? extends Fruit> fruitsArrayList = new ArrayList<>();
+        // Cannot add any Apple or Fruit class because its only readable.
+        // fruitsArrayList.add(new Apple());
+
+        
+        // Countervariation, we could only add all classes that 'Parent' is Fruit
+        ArrayList<? super Fruit> fruitsAndOtherArrayList = new ArrayList<>();
+        fruitsAndOtherArrayList.add(new Fruit());
+        fruitsAndOtherArrayList.add(new Apple());
+        // We cannot add FruitTree because it is higher on hierarchy than Fruit.
+        // fruitsAndOtherArrayList.add(new FruitTree());
+        System.out.println(fruitsAndOtherArrayList.get(1));
+
+        ArrayList<Object> anyTypeArrayList = new ArrayList<>();
+        anyTypeArrayList.add(new Fruit());
+
+        anyTypeArrayList.get(0);
 
     }
 }
